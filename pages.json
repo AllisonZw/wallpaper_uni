@@ -41,6 +41,13 @@
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path" : "pages/notice/notice",
+			"style" : 
+			{
+				"navigationBarTitleText" : "公告"
+			}
 		}
 	],
 	"globalStyle": {

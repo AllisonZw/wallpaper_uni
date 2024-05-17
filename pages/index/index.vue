@@ -1,5 +1,6 @@
 <template>
-	<view class="homeLayout">
+	<view class="homeLayout pageBg">
+		<custom-nav-bar title="推荐"></custom-nav-bar>
 		<!-- 轮播图 -->
 		<view class="banner">
 			<swiper indicator-dots indicator-active-color="rgba(255,255,255,0.5)">
@@ -44,8 +45,8 @@
 			</common-title>
 			<view class="content">
 				<scroll-view scroll-x >
-					<view class="box" v-for="item in 8">
-						<image src="../../common/images/preview_small.webp" mode="aspectFill"></image>
+					<view class="box" v-for="item in 8" @click="goPreview">
+						<image src="../../common/images/preview_small.webp" mode="aspectFill" ></image>
 					</view>
 				</scroll-view>
 			</view>
@@ -71,7 +72,11 @@
 </template>
  
 <script setup>
-	
+const goPreview = ()=>{
+	uni.navigateTo({
+		url:"/pages/preview/preview"
+	})
+}
 </script>
 
 <style lang="scss" scoped>
