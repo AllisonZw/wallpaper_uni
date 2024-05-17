@@ -3,5 +3,18 @@
   "projectname": "wallpaper",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/classlist/classlist",
+          "pathName": "pages/preview/preview",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }
