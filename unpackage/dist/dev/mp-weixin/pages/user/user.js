@@ -15,8 +15,7 @@ const _sfc_main = {
       return {
         a: common_vendor.p({
           type: "download-filled",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         b: common_vendor.p({
           type: "right",
@@ -25,8 +24,7 @@ const _sfc_main = {
         }),
         c: common_vendor.p({
           type: "star-filled",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         d: common_vendor.p({
           type: "right",
@@ -35,8 +33,7 @@ const _sfc_main = {
         }),
         e: common_vendor.p({
           type: "chatboxes-filled",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         f: common_vendor.p({
           type: "right",
@@ -45,8 +42,7 @@ const _sfc_main = {
         }),
         g: common_vendor.p({
           type: "notification-filled",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         h: common_vendor.p({
           type: "right",
@@ -55,8 +51,7 @@ const _sfc_main = {
         }),
         i: common_vendor.p({
           type: "flag-filled",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         j: common_vendor.p({
           type: "right",

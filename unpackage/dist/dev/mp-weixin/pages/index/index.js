@@ -24,8 +24,7 @@ function _sfc_render(_ctx, _cache) {
     b: common_assets._imports_0,
     c: common_vendor.p({
       type: "sound-filled",
-      size: "20",
-      color: "#28b389"
+      size: "20"
     }),
     d: common_vendor.f(4, (item, k0, i0) => {
       return {};
@@ -37,8 +36,7 @@ function _sfc_render(_ctx, _cache) {
     }),
     f: common_vendor.p({
       type: "calendar",
-      size: "18",
-      color: "#28b389"
+      size: "18"
     }),
     g: common_vendor.p({
       date: Date.now(),
