@@ -19,7 +19,9 @@
 			<view class="conter">
 				<swiper vertical autoplay interval="1500" duration="300" circular>
 					<swiper-item v-for="item in 4 ">
-						1111
+						<navigator url="/pages/notice/detail">
+							文字内容文字内容文字内容文字内容文字内容文字内容
+						</navigator>
 					</swiper-item>
 				</swiper>
 			</view>
