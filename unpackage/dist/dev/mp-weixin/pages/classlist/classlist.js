@@ -63,8 +63,8 @@ const _sfc_main = {
       if (queryParams.classid)
         res = await api_apis.apiGetClassList(queryParams);
       classList.value = [...classList.value, ...res.data];
-      console.log(res.data.length !== queryParams.pageSize);
       noData.value = res.data.length !== queryParams.pageSize;
+      common_vendor.index.setStorageSync("storgClassList", classList.value);
     };
     return (_ctx, _cache) => {
       return common_vendor.e({

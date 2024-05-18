@@ -65,7 +65,7 @@
   background: rgba(0, 0, 0, 0.3);
   font-size: 28rpx;
   border-radius: 40rpx;
-  padding: 8rpx 40rpx;
+  padding: 8rpx 28rpx;
   -webkit-backdrop-filter: blur(10rpx);
           backdrop-filter: blur(10rpx);
 }
@@ -195,6 +195,7 @@
   width: 80rpx;
   line-height: 1em;
   text-align: right;
+  font-size: 28rpx;
 }
 .preview .scorePopup .footer.data-v-2dad6c07 {
   padding: 10rpx 0;

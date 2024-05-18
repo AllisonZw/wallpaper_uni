@@ -26,8 +26,29 @@ function apiGetClassList(data = {}) {
     data
   });
 }
+function apiGetSetupScore(data = {}) {
+  return utils_request.request({
+    url: "/setupScore",
+    data
+  });
+}
+function apiWriteDownload(data = {}) {
+  return utils_request.request({
+    url: "/downloadWall",
+    data
+  });
+}
+function apiDetailWall(data = {}) {
+  return utils_request.request({
+    url: "/detailWall",
+    data
+  });
+}
+exports.apiDetailWall = apiDetailWall;
 exports.apiGetBanner = apiGetBanner;
 exports.apiGetClassList = apiGetClassList;
 exports.apiGetClassify = apiGetClassify;
 exports.apiGetDayRandom = apiGetDayRandom;
 exports.apiGetNotice = apiGetNotice;
+exports.apiGetSetupScore = apiGetSetupScore;
+exports.apiWriteDownload = apiWriteDownload;

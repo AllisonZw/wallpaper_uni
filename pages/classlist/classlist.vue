@@ -84,8 +84,8 @@ const getClassList = async ()=>{
 	let res;
 	if(queryParams.classid) res = await apiGetClassList(queryParams);
 	classList.value = [...classList.value, ...res.data]
-	console.log(res.data.length !== queryParams.pageSize);
 	noData.value = res.data.length !== queryParams.pageSize
+	uni.setStorageSync("storgClassList",classList.value);	
 }
 </script>
 
