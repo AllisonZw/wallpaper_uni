@@ -50,7 +50,7 @@ const _sfc_main = {
           return {};
         }),
         b: common_vendor.o(maskChange),
-        c: common_assets._imports_0$2,
+        c: common_assets._imports_0,
         d: common_vendor.p({
           type: "back",
           color: "#fff",

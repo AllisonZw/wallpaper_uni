@@ -3,9 +3,9 @@
 		<custom-nav-bar title="推荐"></custom-nav-bar>
 		<!-- 轮播图 -->
 		<view class="banner">
-			<swiper indicator-dots indicator-active-color="rgba(255,255,255,0.5)">
-				<swiper-item v-for="item in 3">
-					<image src="../../common/images/banner1.jpg" mode="aspectFill"></image>
+			<swiper indicator-dots autoplay indicator-active-color="rgba(255,255,255,0.5)">
+				<swiper-item v-for="item in bannerList" :key="item._id">
+					<image :src="item.picurl" mode="aspectFill"></image>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -18,9 +18,9 @@
 			</view>
 			<view class="conter">
 				<swiper vertical autoplay interval="1500" duration="300" circular>
-					<swiper-item v-for="item in 4 ">
+					<swiper-item v-for="item in noticeList" :key="item._id">
 						<navigator url="/pages/notice/detail">
-							文字内容文字内容文字内容文字内容文字内容文字内容
+							{{item.title}}
 						</navigator>
 					</swiper-item>
 				</swiper>
@@ -47,8 +47,8 @@
 			</common-title>
 			<view class="content">
 				<scroll-view scroll-x >
-					<view class="box" v-for="item in 8" @click="goPreview">
-						<image src="../../common/images/preview_small.webp" mode="aspectFill" ></image>
+					<view class="box" v-for="item in randomList" :key="item._id" @click="goPreview(item._id)">					
+						<image :src="item.smallPicurl" mode="aspectFill"></image>					
 					</view>
 				</scroll-view>
 			</view>
@@ -66,7 +66,7 @@
 			</common-title>
 			
 			<view class="content">
-				<theme-item v-for="item in 8"></theme-item>
+				<theme-item v-for="item in classifyList" :key="item._id" :item="item"></theme-item>
 				<theme-item isMore></theme-item>
 			</view>
 		</view>
@@ -74,11 +74,47 @@
 </template>
  
 <script setup>
+import { onMounted, ref } from 'vue';
+import {apiGetBanner,apiGetDayRandom,apiGetNotice,apiGetClassify} from "@/api/apis.js"
+
+const bannerList= ref([]);
+const randomList = ref([]);
+const noticeList = ref([]);
+const classifyList = ref([]);
+
+const getBanner = async ()=>{
+	let res =await apiGetBanner();	
+	bannerList.value = res.data;	
+}
+
+const getDayRandom = async ()=>{
+	let res =await apiGetDayRandom();
+	randomList.value = res.data	
+}
+
+const getNotice = async()=>{
+	let res =await apiGetNotice({select:true});
+	noticeList.value = res.data
+}
+
+const getClassify =async()=>{
+	let res =await apiGetClassify({
+		select:true
+	});
+	classifyList.value = res.data
+}
+
+// 跳转到预览页面
 const goPreview = ()=>{
 	uni.navigateTo({
 		url:"/pages/preview/preview"
 	})
 }
+
+getBanner()
+getDayRandom()
+getNotice()
+getClassify()
 </script>
 
 <style lang="scss" scoped>
