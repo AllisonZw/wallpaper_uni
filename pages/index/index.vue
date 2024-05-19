@@ -106,10 +106,11 @@ const getClassify =async()=>{
 }
 
 // 跳转到预览页面
-const goPreview = ()=>{
+const goPreview = (id)=>{
+	uni.setStorageSync("storgClassList",randomList.value);
 	uni.navigateTo({
-		url:"/pages/preview/preview"
-	})
+		url:"/pages/preview/preview?id="+id
+	})	
 }
 
 //分享给好友
