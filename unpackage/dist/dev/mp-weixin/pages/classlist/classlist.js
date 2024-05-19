@@ -41,12 +41,14 @@ const _sfc_main = {
       pageNum: 1,
       pageSize: 12
     };
+    let pageName;
     common_vendor.onLoad((e) => {
       let { id = null, name = null, type = null } = e;
       if (type)
         queryParams.type = type;
       if (id)
         queryParams.classid = id;
+      pageName = name;
       common_vendor.index.setNavigationBarTitle({
         title: name
       });
@@ -66,6 +68,21 @@ const _sfc_main = {
       noData.value = res.data.length !== queryParams.pageSize;
       common_vendor.index.setStorageSync("storgClassList", classList.value);
     };
+    common_vendor.onShareAppMessage((e) => {
+      return {
+        title: "咸虾米壁纸-" + pageName,
+        path: "/pages/classlist/classlist?id=" + queryParams.classid + "&name=" + pageName
+      };
+    });
+    common_vendor.onShareTimeline(() => {
+      return {
+        title: "咸虾米壁纸-" + pageName,
+        query: "id=" + queryParams.classid + "&name=" + pageName
+      };
+    });
+    common_vendor.onUnload(() => {
+      common_vendor.index.removeStorageSync("storgClassList");
+    });
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
@@ -89,4 +106,5 @@ const _sfc_main = {
   }
 };
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/allison/Documents/StudyResource/Demo/uniapp/wallpaper/pages/classlist/classlist.vue"]]);
+_sfc_main.__runtimeHooks = 6;
 wx.createPage(MiniProgramPage);

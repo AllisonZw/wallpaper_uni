@@ -47,6 +47,17 @@ const _sfc_main = {
         url: "/pages/preview/preview"
       });
     };
+    common_vendor.onShareAppMessage((e) => {
+      return {
+        title: "咸虾米壁纸，好看的手机壁纸",
+        path: "/pages/classify/classify"
+      };
+    });
+    common_vendor.onShareTimeline(() => {
+      return {
+        title: "咸虾米壁纸，好看的手机壁纸"
+      };
+    });
     getBanner();
     getDayRandom();
     getNotice();
@@ -109,4 +120,5 @@ const _sfc_main = {
   }
 };
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-1cf27b2a"], ["__file", "/Users/allison/Documents/StudyResource/Demo/uniapp/wallpaper/pages/index/index.vue"]]);
+_sfc_main.__runtimeHooks = 6;
 wx.createPage(MiniProgramPage);

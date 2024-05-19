@@ -75,6 +75,7 @@
  
 <script setup>
 import { onMounted, ref } from 'vue';
+import {onShareAppMessage,onShareTimeline} from "@dcloudio/uni-app"
 import {apiGetBanner,apiGetDayRandom,apiGetNotice,apiGetClassify} from "@/api/apis.js"
 
 const bannerList= ref([]);
@@ -110,6 +111,21 @@ const goPreview = ()=>{
 		url:"/pages/preview/preview"
 	})
 }
+
+//分享给好友
+onShareAppMessage((e)=>{
+	return {
+		title:"咸虾米壁纸，好看的手机壁纸",
+		path:"/pages/classify/classify"
+	}
+})
+
+//分享朋友圈
+onShareTimeline(()=>{
+	return {
+		title:"咸虾米壁纸，好看的手机壁纸"
+	}
+})
 
 getBanner()
 getDayRandom()

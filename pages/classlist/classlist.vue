@@ -25,7 +25,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import {onLoad, onReachBottom} from '@dcloudio/uni-app';
+import {onLoad,onUnload, onReachBottom,onShareAppMessage,onShareTimeline} from '@dcloudio/uni-app';
 import {apiGetClassList,apiGetHistoryList} from "@/api/apis.js"
 
 const skeleton = ref([
@@ -87,6 +87,28 @@ const getClassList = async ()=>{
 	noData.value = res.data.length !== queryParams.pageSize
 	uni.setStorageSync("storgClassList",classList.value);	
 }
+
+//分享给好友
+onShareAppMessage((e)=>{
+	return {
+		title:"咸虾米壁纸-"+pageName,
+		path:"/pages/classlist/classlist?id="+queryParams.classid+"&name="+pageName
+	}
+})
+
+
+//分享朋友圈
+onShareTimeline(()=>{
+	return {
+		title:"咸虾米壁纸-"+pageName,
+		query:"id="+queryParams.classid+"&name="+pageName
+	}
+})
+
+onUnload(() => {
+	uni.removeStorageSync("storgClassList")
+})
+
 </script>
 
 <style lang="scss">
