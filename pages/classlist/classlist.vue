@@ -27,7 +27,7 @@
 import { ref } from 'vue';
 import {onLoad,onUnload, onReachBottom,onShareAppMessage,onShareTimeline} from '@dcloudio/uni-app';
 import {apiGetClassList,apiGetHistoryList} from "@/api/apis.js"
-
+import {gotoHome} from '@/utils/common.js'
 const skeleton = ref([
 	{
 		type: 'flex',
@@ -61,6 +61,7 @@ const queryParams = {
 let pageName;
 onLoad((e)=>{	
 	let {id=null,name=null,type=null} = e;
+	if(!id) gotoHome()
 	if(type) queryParams.type = type;
 	if(id) queryParams.classid = id;	
 	
