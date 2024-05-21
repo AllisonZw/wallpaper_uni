@@ -19,7 +19,7 @@
 			<view class="conter">
 				<swiper vertical autoplay interval="1500" duration="300" circular>
 					<swiper-item v-for="item in noticeList" :key="item._id">
-						<navigator url="/pages/notice/detail">
+						<navigator :url="'/pages/notice/detail?id='+item._id">
 							{{item.title}}
 						</navigator>
 					</swiper-item>

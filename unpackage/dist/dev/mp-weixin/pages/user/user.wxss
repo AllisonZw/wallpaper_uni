@@ -63,7 +63,6 @@
   padding: 0 30rpx;
   height: 100rpx;
   border-bottom: 1px solid #eee;
-  border-radius: 10rpx;
   position: relative;
   background: #fff;
 }

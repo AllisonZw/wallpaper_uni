@@ -61,7 +61,7 @@ const queryParams = {
 let pageName;
 onLoad((e)=>{	
 	let {id=null,name=null,type=null} = e;
-	if(!id) gotoHome()
+	// if(!id) gotoHome()
 	if(type) queryParams.type = type;
 	if(id) queryParams.classid = id;	
 	
@@ -84,6 +84,7 @@ onReachBottom(() => {
 const getClassList = async ()=>{
 	let res;
 	if(queryParams.classid) res = await apiGetClassList(queryParams);
+	if(queryParams.type) res = await apiGetHistoryList(queryParams);
 	classList.value = [...classList.value, ...res.data]
 	noData.value = res.data.length !== queryParams.pageSize
 	uni.setStorageSync("storgClassList",classList.value);	

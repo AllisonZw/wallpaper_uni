@@ -1,7 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const api_apis = require("../../api/apis.js");
-const utils_common = require("../../utils/common.js");
 if (!Array) {
   const _easycom_uv_skeletons2 = common_vendor.resolveComponent("uv-skeletons");
   const _easycom_uni_load_more2 = common_vendor.resolveComponent("uni-load-more");
@@ -45,8 +44,6 @@ const _sfc_main = {
     let pageName;
     common_vendor.onLoad((e) => {
       let { id = null, name = null, type = null } = e;
-      if (!id)
-        utils_common.gotoHome();
       if (type)
         queryParams.type = type;
       if (id)
@@ -67,6 +64,8 @@ const _sfc_main = {
       let res;
       if (queryParams.classid)
         res = await api_apis.apiGetClassList(queryParams);
+      if (queryParams.type)
+        res = await api_apis.apiGetHistoryList(queryParams);
       classList.value = [...classList.value, ...res.data];
       noData.value = res.data.length !== queryParams.pageSize;
       common_vendor.index.setStorageSync("storgClassList", classList.value);
