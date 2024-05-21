@@ -62,6 +62,12 @@ function apiNoticeDetail(data = {}) {
     data
   });
 }
+function apiSearchData(data = {}) {
+  return utils_request.request({
+    url: "/searchWall",
+    data
+  });
+}
 exports.apiDetailWall = apiDetailWall;
 exports.apiGetBanner = apiGetBanner;
 exports.apiGetClassList = apiGetClassList;
@@ -71,5 +77,6 @@ exports.apiGetHistoryList = apiGetHistoryList;
 exports.apiGetNotice = apiGetNotice;
 exports.apiGetSetupScore = apiGetSetupScore;
 exports.apiNoticeDetail = apiNoticeDetail;
+exports.apiSearchData = apiSearchData;
 exports.apiUserInfo = apiUserInfo;
 exports.apiWriteDownload = apiWriteDownload;
